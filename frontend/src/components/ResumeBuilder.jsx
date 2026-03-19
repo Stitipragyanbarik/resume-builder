@@ -69,7 +69,7 @@ const ResumeBuilder = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/resume/create",
+       "https://resume-builder-bmtd.onrender.com/api/resume/create",
         { name, skills }
       );
 
@@ -85,7 +85,7 @@ const ResumeBuilder = () => {
   const downloadResume = () => {
     if (!resumeId) return alert("Save first!");
     window.open(
-      `http://localhost:5000/api/resume/download/${resumeId}`
+      `https://resume-builder-bmtd.onrender.com/api/resume/download/${resumeId}`
     );
   };
 
@@ -94,7 +94,7 @@ const ResumeBuilder = () => {
     if (!email) return alert("Enter email!");
 
     await axios.post(
-      `http://localhost:5000/api/resume/email/${resumeId}`,
+      `https://resume-builder-bmtd.onrender.com/api/resume/email/${resumeId}`,
       { email }
     );
 
@@ -105,7 +105,7 @@ const ResumeBuilder = () => {
   const sendWhatsApp = () => {
     if (!resumeId) return alert("Save first!");
 
-    const link = `http://localhost:5000/api/resume/download/${resumeId}`;
+    const link = `https://resume-builder-bmtd.onrender.com/api/resume/download/${resumeId}`;
     const msg = `Download Resume: ${link}`;
 
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`);

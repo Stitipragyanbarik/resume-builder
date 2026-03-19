@@ -9,7 +9,7 @@ const AdminPanel = () => {
   // fetch all resumes
   
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:5000/api/resume");
+    const res = await axios.get("https://resume-builder-bmtd.onrender.com/api/resume");
     setData(res.data);
   };
 
@@ -19,13 +19,13 @@ const AdminPanel = () => {
 
   // delete
   const deleteResume = async (id) => {
-    await axios.delete(`http://localhost:5000/api/resume/${id}`);
+    await axios.delete(`https://resume-builder-bmtd.onrender.com/api/resume/${id}`);
     fetchData();
   };
 
   // update
   const updateResume = async (id) => {
-    await axios.put(`http://localhost:5000/api/resume/${id}`, {
+    await axios.put(`https://resume-builder-bmtd.onrender.com/api/resume/${id}`,  {
       name: editName,
     });
     setEditId(null);
@@ -59,7 +59,7 @@ const AdminPanel = () => {
             <p><b>Name:</b> {item.name}</p>
           )}
 
-          <p><b>Skills:</b> {item.skills.join(", ")}</p>
+          <p><b>Skills:</b> {item.skills ? item.skills.join(", ") : "No skills"}</p>
           <p><b>Downloads:</b> {item.downloads}</p>
 
           {/* ACTION BUTTONS */}
